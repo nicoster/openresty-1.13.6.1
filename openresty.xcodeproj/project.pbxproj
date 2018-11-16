@@ -1,0 +1,116 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXFileReference section */
+		1029A4BE2192C7A2005B34B7 /* build */ = {isa = PBXFileReference; lastKnownFileType = folder; path = build; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		10FDE3DC2192B8580072D00D = {
+			isa = PBXGroup;
+			children = (
+				1029A4BE2192C7A2005B34B7 /* build */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		10FDE3E12192B8580072D00D /* openresty */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 10FDE3E42192B8580072D00D /* Build configuration list for PBXLegacyTarget "openresty" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			dependencies = (
+			);
+			name = openresty;
+			passBuildSettingsInEnvironment = 1;
+			productName = openresty;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXProject section */
+		10FDE3DD2192B8580072D00D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Nick Xiao";
+				TargetAttributes = {
+					10FDE3E12192B8580072D00D = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 10FDE3E02192B8580072D00D /* Build configuration list for PBXProject "openresty" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 10FDE3DC2192B8580072D00D;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				10FDE3E12192B8580072D00D /* openresty */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		10FDE3E22192B8580072D00D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		10FDE3E32192B8580072D00D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		10FDE3E52192B8580072D00D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		10FDE3E62192B8580072D00D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		10FDE3E02192B8580072D00D /* Build configuration list for PBXProject "openresty" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10FDE3E22192B8580072D00D /* Debug */,
+				10FDE3E32192B8580072D00D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		10FDE3E42192B8580072D00D /* Build configuration list for PBXLegacyTarget "openresty" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10FDE3E52192B8580072D00D /* Debug */,
+				10FDE3E62192B8580072D00D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 10FDE3DD2192B8580072D00D /* Project object */;
+}

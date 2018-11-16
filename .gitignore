@@ -1,0 +1,12 @@
+*.xcodeproj/project.xcworkspace/
+*.xcodeproj/xcshareddata/
+*.xcodeproj/xcuserdata/
+.DS_Store
+COPYRIGHT
+README-win32.txt
+README.markdown
+bundle/
+configure
+ngx_http_lua_coroutine.c
+patches/
+util/

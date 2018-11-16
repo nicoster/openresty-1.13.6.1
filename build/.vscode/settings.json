@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "ngx_event.h": "c",
+        "ngx_core.h": "c",
+        "ngx_event_openssl.h": "c",
+        "ngx_http_lua_semaphore.h": "c"
+    }
+}
