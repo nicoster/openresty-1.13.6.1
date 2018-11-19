@@ -637,6 +637,11 @@ ngx_http_lua_socket_tcp_connect(lua_State *L)
         return 2;
     }
 
+    if (rc == NGX_AGAIN) {
+        /* wait on connection pool semaphore */
+        return lua_yield(L, 0);
+    }
+
     /* rc == NGX_DECLINED */
 
     /* TODO: we should avoid this in-pool allocation */
@@ -4498,6 +4503,8 @@ ngx_http_lua_socket_tcp_setkeepalive(lua_State *L)
     int                                  n;
     ngx_int_t                            rc;
     ngx_buf_t                           *b;
+    ngx_http_lua_sema_t                 *sema;
+    char                                *errmsg;
 
     ngx_http_lua_socket_pool_item_t     *items, *item;
 
@@ -4627,6 +4634,10 @@ ngx_http_lua_socket_tcp_setkeepalive(lua_State *L)
             return luaL_error(L, "no memory");
         }
 
+        if (NGX_ERROR == ngx_http_lua_ffi_sema_new(&spool->sema, 0, &errmsg)) {
+            return luaL_error(L, errmsg);
+        }
+
         lua_pushlightuserdata(L, &ngx_http_lua_pool_udata_metatable_key);
         lua_rawget(L, LUA_REGISTRYINDEX);
         lua_setmetatable(L, -2);
@@ -4747,6 +4758,8 @@ ngx_http_lua_socket_tcp_setkeepalive(lua_State *L)
         }
     }
 
+    ngx_http_lua_ffi_sema_post(spool->sema, 1);
+
 #if 1
     ngx_http_lua_socket_tcp_finalize(r, u);
 #endif
@@ -4849,6 +4862,10 @@ ngx_http_lua_get_keepalive_peer(ngx_http_request_t *r, lua_State *L,
         lua_settop(L, top);
 
         return NGX_OK;
+    } else {
+        /* no connection available, let's wait until there's any */
+        size_t dummy = 0;
+        return ngx_http_lua_ffi_sema_wait(r, spool->sema, 15 * 1000, 0, &dummy)
     }
 
     ngx_log_debug0(NGX_LOG_DEBUG_HTTP, pc->log, 0,

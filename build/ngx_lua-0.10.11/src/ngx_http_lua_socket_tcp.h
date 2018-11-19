@@ -46,8 +46,9 @@ typedef struct {
     ngx_queue_t                        cache;
     ngx_queue_t                        free;
 
-    u_char                             key[1];
+    ngx_http_lua_sema_t               *sema;
 
+    u_char                             key[1];
 } ngx_http_lua_socket_pool_t;
 
 
